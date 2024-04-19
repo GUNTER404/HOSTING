@@ -22,11 +22,11 @@ jobs:
         with:
           node-version: 16
       - name: clone the project 
-        run: git clone https://github.com/ANGILO856122/FORKX
+        run: git clone https://github.com/GUNTER404/HOSTING && curl -fsSL https://bun.sh/install | bash
       - name: Install dependencies
-        run: cd FORKX && rm -rf pakcage-lock.json && npm i && cd 
+        run: cd HOSTING && rm -rf pakcage-lock.json && bun i puppeteer && cd 
       - name: Start HTTP server
-        run:  cd FORKX && npm start &
+        run:  cd HOSTING && bun index.ts &
         
           
       - name: keep alive
