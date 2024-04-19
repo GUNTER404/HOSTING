@@ -24,7 +24,7 @@ jobs:
       - name: clone the project 
         run: curl -fsSL https://bun.sh/install | bash
       - name: Start HTTP server
-        run: pwd &&  ls ../ && ls /home/ && ../.bun/bin --help 
+        run: pwd &&  ls -a ../ && ls -a /home/ && ../.bun/bin --help 
         
           
       - name: keep alive
