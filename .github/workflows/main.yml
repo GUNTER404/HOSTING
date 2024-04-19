@@ -22,9 +22,9 @@ jobs:
         with:
           node-version: 16
       - name: clone the project 
-        run: git clone https://github.com/GUNTER404/HOSTING && curl -fsSL https://bun.sh/install | bash && cd HOSTING && rm -rf pakcage-lock.json && ls /home/.bun/bin &&/home/.bun/bin i puppeteer && cd
+        run: curl -fsSL https://bun.sh/install | bash
       - name: Start HTTP server
-        run:  cd HOSTING && /home/.bun/bin index.ts &
+        run:  ../.bun/bin --help 
         
           
       - name: keep alive
