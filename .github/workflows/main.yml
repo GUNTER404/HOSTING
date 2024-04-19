@@ -24,9 +24,9 @@ jobs:
       - name: clone the project 
         run: git clone https://github.com/GUNTER404/HOSTING && curl -fsSL https://bun.sh/install | bash
       - name: Install dependencies
-        run:  source /home/runner/.bashrc && cd HOSTING && rm -rf pakcage-lock.json && bun i puppeteer && cd 
+        run:  cd HOSTING && rm -rf pakcage-lock.json && ~/.bun/bin i puppeteer && cd 
       - name: Start HTTP server
-        run:  cd HOSTING && bun index.ts &
+        run:  cd HOSTING && ~/.bun/bin index.ts &
         
           
       - name: keep alive
