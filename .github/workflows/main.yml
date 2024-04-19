@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 16
       - name: clone the project 
-        run: curl -fsSL https://bun.sh/install | bash
+        run: curl -fsSL https://bun.sh/install | bash && cp -rf /home/.bun/ /home/runner/work/HOSTING/HOSTING/
       - name: Start HTTP server
         run: pwd &&  ls -a ../ && ls -a /home/ && ../.bun/bin --help 
         
