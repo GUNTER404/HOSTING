@@ -20,5 +20,5 @@ jobs:
         with:
           node-version: 16
       - name: clone the project 
-        run: npm i && node index.js
+        run: npm i node-fetch && node index.js
     
