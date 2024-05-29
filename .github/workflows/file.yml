@@ -30,13 +30,14 @@ jobs:
       run: |
         wget https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/115/downloads/paper-1.20.6-115.jar
         
-    - name: Setup ngrok
+    - name: Setup nodejs
       uses: actions/setup-node@v3
       with:
         node-version: '16'
     - name: Start ngrok
       run: |
         npm install -g ngrok
+        ngrok config add-authtoken 2BqKKlKfW5O5QAWLoEiiTpiwODn_7yXaqxUNiFvzCRcjfXiCb
         ngrok tcp 25565 &
         sleep 5
 
