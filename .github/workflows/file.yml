@@ -37,7 +37,7 @@ jobs:
     - name: Start ngrok
       run: |
         npm install -g ngrok
-        ngrok http 25565 &
+        ngrok tcp 25565 &
         sleep 5
 
     - name: Get ngrok URL
