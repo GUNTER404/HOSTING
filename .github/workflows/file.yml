@@ -22,11 +22,11 @@ jobs:
 
     - name: Download Paper
       run: |
-        wget https://api.papermc.io/v2/projects/paper/versions/1.19.2/builds/657/downloads/paper-1.19.2-657.jar
+        wget https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/115/downloads/paper-1.20.6-115.jar
         
     - name: Start Minecraft Paper Server
       run: |
-        java -Xms2G -Xmx4G -jar paper-1.19.2-657.jar
+        java -Xms2G -Xmx4G -jar paper-1.20.6-115.jar
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
