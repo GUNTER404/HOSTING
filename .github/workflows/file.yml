@@ -30,7 +30,7 @@ jobs:
         
     - name: Start Minecraft Paper Server
       run: |
-        sleep 6000
+        sleep 1m
 
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
