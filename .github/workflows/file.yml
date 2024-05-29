@@ -26,10 +26,14 @@ jobs:
         
     - name: Start Minecraft Paper Server
       run: |
-        echo "eula=true">eula.txt && java -Xms2G -Xmx4G -jar paper-1.20.6-115.jar
-      
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+        echo "eula=true">eula.txt && java -Xms2G -Xmx4G -jar paper-1.20.6-115.jar &
+        
+    - name: Start Minecraft Paper Server
+      run: |
+        sleep 6000
+
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
+        commit_message: Update Minecraft Paper server
+        branch: ${{ github.head_ref }}
