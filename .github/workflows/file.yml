@@ -48,6 +48,11 @@ jobs:
     - name: Start Minecraft Paper Server
       run: |
         echo "Your Minecraft Paper server is running at ${{ steps.ngrok.outputs.result }}"
+        mkdir plugins
+        cd plugins 
+        wget "https://cdn.modrinth.com/data/NpvuJQoq/versions/L6W39IXY/ViaBackwards-4.10.2.jar"
+        wget "https://cdn.modrinth.com/data/P1OZGk5p/versions/xGQhobcA/ViaVersion-4.10.2.jar"
+        cd ..
         echo "eula=true">eula.txt
         java -Xms2G -Xmx4G -jar paper-1.20.6-115.jar
      
