@@ -28,7 +28,7 @@ jobs:
         
     - name: Download Paper
       run: |
-        wget https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/497/download/paper-1.20.4-497.jar
+        wget https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/497/downloads/paper-1.20.4-497.jar
         
     - name: Setup nodejs
       uses: actions/setup-node@v3
