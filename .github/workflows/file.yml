@@ -59,12 +59,19 @@ jobs:
         wget "https://cdn.modrinth.com/data/NpvuJQoq/versions/QysADh1s/ViaBackwards-4.9.2.jar"
         wget "https://cdn.modrinth.com/data/P1OZGk5p/versions/uuXDjZ6t/ViaVersion-4.9.3.jar"
         cd ..
-        timeout 1.5m java -Xms2G -Xmx8G -jar paper-1.20.4-497.jar nogui &
-        sleep 120
+        timeout 1m java -Xms2G -Xmx8G -jar paper-1.20.4-497.jar nogui &
+        sleep 1.5m
         
      
-    - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v4
+    - name: Commit
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'action@github.com'
+        git add -A
+        git diff-index --quiet HEAD || (git commit -a -m "update Logs" --allow-empty)
+          
+    - name: push changes
+      uses: ad-m/github-push-action@v0.6.0
       with:
-        commit_message: Update Minecraft Paper server
-        branch: ${{ github.head_ref }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
