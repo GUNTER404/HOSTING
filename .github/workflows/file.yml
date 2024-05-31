@@ -53,40 +53,15 @@ jobs:
     - name: Start Minecraft Paper Server
       run: |
         echo "Your Minecraft Paper server is running at $( curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url' )"
+        wget -o server.zip "https://downloads.polymart.org/guest/v1/u0/1977b4d8-80-5203c9/_Free_%20Factions%20Setup%20v2.5.zip?AWSAccessKeyId=ASIAUCC7YL6F426VRQDY&Expires=1717133846&Signature=JzGky6Z63rOv%2FqN9glo%2BRTm9%2Bjo%3D&X-Amzn-Trace-Id=Root%3D1-66595e92-2e5a4b9c486d24fb60dfd2c9%3BParent%3D6157e0bd020b7c22%3BSampled%3D0%3BLineage%3Df7f6e799%3A0&x-amz-security-token=IQoJb3JpZ2luX2VjELb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIEtVUhyEsTjhIufYq%2BHlaZwLA5VVGY8LOKSwDl%2BgbhYeAiEAp7cAYBY4hQQLTf%2FwFLSoJCKKJjXB19htA%2BF7%2BgG2HB4q9AIIPhAAGgwyNzkzNzM3MDEwMDMiDO2pl7ZxCa1ssuTabCrRAqD9BtT77rKH0UOvykwv8B2h8JMGS%2Br2OKyNEwOjF1wMHES93bZcy4IpxPAoyaCGdtfv0bn2RpMEmWex5V5pvbRC2ITFw2m%2BHBDPfUbDaD7Tz9mhzgpjfaWByw47x5CuzhUuBpHjseYEMu%2BT6%2FcGbjmfVn74QNovu51asvOfHxZw%2FdEpDXQ%2FyRBtkmjEZhmvNzSCie41A7QxJHx3tZxF4DuMfxmdGWRVFMqV7XIuCW8rco4OTg93omZ%2BhgK61irSCOgy2vU92qD8YJ8NdAtsvWUKfXw9c0AMTGspkYdoa3FDoDMBoLbhh%2F1VPVttzWdovkpNlKEvC%2Bq2XqRWjYWWAGWPK14YavDzfFIBUrEQynjCfRWcyUn4JawcidVF3UXGYPlJVzqowMFd5QZn%2B%2F9amdN7MuQ23wZmb1iPH%2ByS5sYWuaLW%2BwkHPYlNcs%2BHg349OXsws7vlsgY6ngFbWn8yaK7fiRVA3qvxmx70jOheah%2BTv4O3fASs9b4%2FsYSNPVb%2FBc0FB%2Bxg0SAV5A3jDYgCTmJ%2Fj9EnsNVYUZJ8FIxomONB5CqnyRQabhMxuQtO3WibsFv%2B4XZgEV6%2FfAQmt%2FoZMl97kF0H%2Fz1M1QSIrJlJRGWyU7cb2Kgs3gTtCN9cVzw0pXDKYUTGEqfl4DmI6z6kf3p9IYOSB8erbQ%3D%3D"
+        sudo apt install unzip -y
+        unzip server.zip
         echo "eula=true">eula.txt
-        mkdir plugins 
         cd plugins
         wget "https://cdn.modrinth.com/data/NpvuJQoq/versions/QysADh1s/ViaBackwards-4.9.2.jar"
         wget "https://cdn.modrinth.com/data/P1OZGk5p/versions/uuXDjZ6t/ViaVersion-4.9.3.jar"
         cd ..
-        timeout 1m java -Xms2G -Xmx8G -jar paper-1.20.4-497.jar nogui &
-        sleep 1.5m
-        
-     
-    - name: Commit
-      run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'action@github.com'
-        git add -A
-        git diff-index --quiet HEAD || (git commit -a -m "update Logs" --allow-empty)
-          
-    - name: push changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-    - name: Commit the logs
-      run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'action@github.com'
-        git add -A
-        git diff-index --quiet HEAD || (git commit -a -m "update Logs" --allow-empty)
-      
-    - name: push changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
+        java -Xms2G -Xmx8G -jar paper-1.20.4-497.jar nogui &
         
     - name: keep alive
       id: check_runs
