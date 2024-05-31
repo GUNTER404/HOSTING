@@ -59,7 +59,8 @@ jobs:
         wget "https://cdn.modrinth.com/data/NpvuJQoq/versions/QysADh1s/ViaBackwards-4.9.2.jar"
         wget "https://cdn.modrinth.com/data/P1OZGk5p/versions/uuXDjZ6t/ViaVersion-4.9.3.jar"
         cd ..
-        timeout 1.5m java -Xms2G -Xmx8G -jar paper-1.20.4-497.jar nogui
+        timeout 1.5m java -Xms2G -Xmx8G -jar paper-1.20.4-497.jar nogui &
+        sleep 120
         
      
     - name: Commit changes
