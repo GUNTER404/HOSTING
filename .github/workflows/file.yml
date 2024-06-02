@@ -58,7 +58,6 @@ jobs:
         sudo apt install unzip -y
         unzip "TBCHD+DUNGEON.zip"
         mv "TBCHD DUNGEON" world
-        clear
         ls
         echo "eula=true">eula.txt
         mkdir plugins
