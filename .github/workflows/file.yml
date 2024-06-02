@@ -53,7 +53,7 @@ jobs:
     - name: Start Minecraft Paper Server
       run: |
         echo "Your Minecraft Paper server is running at $( curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url' )"
-        wget "https://download2392.mediafire.com/smag70ypw49guUkiV2dYPSG41r5DFLrzN0pDIDIG5tcxy78uFALjakvsuM6NnEUR8bBL353xGGhlUv4hv37wJsXWvcqREJMwPHBDunQ8EZxsGA79REfBn7Yk_1cG6UCL4O214CltF6FTjN8Dcx1qG5M5obzZOmyka0WoZZFBRnboww/gnbk9ncd3fhxmht/TBCHD+DUNGEON.zip"
+        wget "https://download2392.mediafire.com/34jysyds2ixgJ76-7wZAGkeFpPzbEpA5SRyZPqYxF8vordt87IzOLzLbXf3GsUOsjjSorBx4BLz8CcjCFSez7_l72X10o_kwwZXpA1ItLznDE9WcBPcduPCDD5eZiA48pwhQSdfotuPAKcSTEizi6no4tBewX5fDovqcQJ85ZOoLAA/gnbk9ncd3fhxmht/TBCHD+DUNGEON.zip"
         ls
         sudo apt install unzip -y
         unzip "TBCHD+DUNGEON.zip"
