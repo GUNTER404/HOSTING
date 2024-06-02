@@ -57,8 +57,11 @@ jobs:
         ls
         sudo apt install unzip -y
         unzip "TBCHD+DUNGEON.zip"
+        mv "TBCHD DUNGEON" world
+        clear
         ls
         echo "eula=true">eula.txt
+        mkdir plugins
         cd plugins
         wget "https://cdn.modrinth.com/data/NpvuJQoq/versions/QysADh1s/ViaBackwards-4.9.2.jar"
         wget "https://cdn.modrinth.com/data/P1OZGk5p/versions/uuXDjZ6t/ViaVersion-4.9.3.jar"
